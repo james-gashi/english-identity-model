@@ -1,6 +1,9 @@
 # english-identity-model
 A model that can identify the date in which text was written based on the style of the text.
 
+## Data
+Data sourced from the free ebook source [Project Gutenburg](https://www.gutenberg.org/). Data includes text from prior to 1919. Google cloud link - https://console.cloud.google.com/storage/browser/deepmind-gutenberg;tab=objects?invt=AbuZ8A&prefix=&forceOnObjectsSortingFiltering=false
+
 ## Tools
 Tools to train and explore diachronic word embeddings from Big Historical Data - https://github.com/Living-with-machines/DiachronicEmb-BigHistData
 
