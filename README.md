@@ -9,4 +9,5 @@ Tools to train and explore diachronic word embeddings from Big Historical Data -
 
 ## Papers
 Temporal Language Models for the Disclosure of Historical Text - https://repository.ubn.ru.nl/bitstream/handle/2066/228230/228230.pdf 
+
 Diachronic Text Evaluation - https://aclanthology.org/S15-2147/ (Abstract claims to do essentially what we are trying to except w/ newspapers 1700-2010)
