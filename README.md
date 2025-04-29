@@ -7,7 +7,7 @@ Language is dynamic, evolving over time with shifts in vocabulary, syntax, and s
 ## Data
 Data sourced from the free ebook source [Project Gutenburg](https://www.gutenberg.org/)
 - Link to download zip and metadata for texts found [here.](https://www.gutenberg.org/cache/epub/feeds/)
-- Retrieved all available texts:  75,627
+- Retrieved all available texts: 75,627
 - Data cleaning exploration and cleaning in `data_exploration.ipynb` and `data_cleaning.ipynb` respectively.
 - Final dataset: `uniform_excerpts_2.csv`
     - Random sampling old texts for uniform distribution
@@ -17,7 +17,6 @@ Data sourced from the free ebook source [Project Gutenburg](https://www.gutenber
     - Filter out any text that has multiple authors, translator, original language not in English
     - Includes texts ranging from 1400s to 1900s
     - 6,000 total entries
-
 
 ## Tools
 - Tools to train and explore diachronic word embeddings from Big Historical Data - https://github.com/Living-with-machines/DiachronicEmb-BigHistData
