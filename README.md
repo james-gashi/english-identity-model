@@ -31,6 +31,6 @@ Data sourced from the free ebook source [Project Gutenburg](https://www.gutenber
 
 ### BERT
 
-#### DistilBERT
+### DistilBERT
 
 ## Conclusion
