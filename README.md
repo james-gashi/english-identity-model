@@ -28,6 +28,10 @@ Data sourced from the free ebook source [Project Gutenburg](https://www.gutenber
 
 ## Models
 
-## Results
+### Naive-Bayes
+
+### BERT
+
+#### DistilBERT
 
 ## Conclusion
