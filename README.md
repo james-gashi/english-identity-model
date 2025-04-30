@@ -7,6 +7,8 @@ Language is dynamic, evolving over time with shifts in vocabulary, syntax, and s
 ## Data
 Data sourced from the free ebook source [Project Gutenburg](https://www.gutenberg.org/)
 - Link to download zip and metadata for texts found [here.](https://www.gutenberg.org/cache/epub/feeds/)
+    - Texts: txt-files.tar.zip
+    - Metadata: pg_catalog.csv
 - Retrieved all available texts: 75,627
 - Data cleaning exploration and cleaning in `data_exploration.ipynb` and `data_cleaning.ipynb` respectively.
 - Final dataset: `uniform_excerpts_2.csv`
