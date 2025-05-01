@@ -10,15 +10,17 @@ Data sourced from the free ebook source [Project Gutenburg](https://www.gutenber
     - Texts: txt-files.tar.zip
     - Metadata: pg_catalog.csv
 - Retrieved all available texts: 75,627
-- Data cleaning exploration and cleaning in `data_exploration.ipynb` and `data_cleaning.ipynb` respectively.
+- Data exploration and cleaning in `data_exploration.ipynb` and `data_cleaning.ipynb` respectively.
 - Final dataset: `uniform_excerpts_2.csv`
-    - Random sampling old texts for uniform distribution
-    - Avoids problems with intro’s prefaces from modern day
-    - Excerpts 400-600 chars long
-    - Remove text with apparent OCR issues if too many unrecognizable chars
-    - Filter out any text that has multiple authors, translator, original language not in English
+    - `text`, `text_number` and `label` columns representing the excerpt from the text, corresponding text ID number, and era labels respectively.
     - Includes texts ranging from 1400s to 1900s
-    - 6,000 total entries
+    - Random sampled old texts to achieve a uniform distribution of 6,000 total entries, 1,000 entries per era.
+    - Filter out intros and outros from modern day.
+    - Excerpts standardized to 400-600 characters long
+    - Remove text with apparent OCR issues if there were too many unrecognizable characters.
+    - Filter out any text with multiple authors, a translator, and original language not in English.
+- Final dataset example entries given below:
+![](images/data_screenshot.png)
 
 ## Tools
 - Tools to train and explore diachronic word embeddings from Big Historical Data - https://github.com/Living-with-machines/DiachronicEmb-BigHistData
@@ -34,7 +36,18 @@ Data sourced from the free ebook source [Project Gutenburg](https://www.gutenber
 ### BERT
 
 ### DistilBERT
-Description
-Methods
-Results
+**Description**
+This model is built on the lightweight and efficient DistilBERT transformer architecture, the model leverages contextual embeddings to learn stylistic and lexical patterns across time. DistilBERT is smaller and faster than BERT, which was pretrained on the same corpus in a self-supervised fashion, using the BERT base model as a teacher. We opted to use the uncased version of the model, in which upper and lower case is treated equally. The reason we used DistilBERT due to its speed and performance retentions. DistilBERT is 60% faster than BERT retains 97% of BERT performance, which was important as one training iteration using a CURC job took ~1 hour.
+
+**Methods**
+We fine-tuned the distilbert-base-uncased model on out dataset of ~6,000 excerpts. Texts were tokenized using DistilBertTokenizerFast with padding/truncation to a max length of 256 tokens. The model was trained using an 80/10/10 train/val/test split with a learning rate of 1e-4, weight decay of 0.05, and trained for 6 epochs using cross-entropy loss. The below training an validation loss is plotted, showing overfitting on our training data. Despite attempts to lower learning rate and increase weight-decay, we still saw this overfitting with suffered performance. 
+![](images/DistilBERT_training_loss.png)
+
+**Results**
+The DistilBERT model achieved a test accuracy of 0.79, outperforming baseline and Naive Bayes approaches. 
+![](images/DistilBERT_acc.png)
+It performed especially well in classifying excerpts from the 1400s–1500s and the 1900s. However, it showed weaker performance distinguishing between the 1600s, 1700s, and 1800s—likely due to the same reasons discussed during Naive Bayes.
+![](images/DistilBERT_conf_matrix.png)
+Overall, we were pleased with the results from DistilBERT, but feel slight tweaks could fix the problem of overfitting and lead to better accuracy.
+
 ## Conclusion
