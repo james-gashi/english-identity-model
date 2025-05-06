@@ -42,13 +42,18 @@ This model is built on the lightweight and efficient DistilBERT transformer arch
 
 **Methods**
 We fine-tuned the distilbert-base-uncased model on out dataset of ~6,000 excerpts. Texts were tokenized using DistilBertTokenizerFast with padding/truncation to a max length of 256 tokens. The model was trained using an 80/10/10 train/val/test split with a learning rate of 1e-4, weight decay of 0.05, and trained for 6 epochs using cross-entropy loss. The below training an validation loss is plotted, showing overfitting on our training data. Despite attempts to lower learning rate and increase weight-decay, we still saw this overfitting with suffered performance. 
+
 ![](images/DistilBERT_training_loss.png)
 
 **Results**
 The DistilBERT model achieved a test accuracy of 0.79, outperforming baseline and Naive Bayes approaches. 
+
 ![](images/DistilBERT_acc.png)
+
 It performed especially well in classifying excerpts from the 1400s–1500s and the 1900s. However, it showed weaker performance distinguishing between the 1600s, 1700s, and 1800s—likely due to the same reasons discussed during Naive Bayes.
+
 ![](images/DistilBERT_conf_matrix.png)
+
 Overall, we were pleased with the results from DistilBERT, but feel slight tweaks could fix the problem of overfitting and lead to better accuracy.
 
 ## Conclusion
